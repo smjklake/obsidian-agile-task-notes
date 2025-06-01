@@ -341,11 +341,11 @@ export class JiraClient implements ITfsClient {
 			});
 
 		new Setting(container)
-			.setName('API Token')
-			.setDesc('The API token generated with your account')
+			.setName('API Token or Path to Token File')
+			.setDesc('Enter the API token directly or provide the absolute path to a file containing the token (e.g., /path/to/token.txt). Using a file path is recommended for better security as the token will not be stored directly in Obsidian\'s settings.')
 			.addText((text) =>
 				text
-					.setPlaceholder('Enter API token')
+					.setPlaceholder('Enter API token or token file path')
 					.setValue(plugin.settings.jiraSettings.apiToken)
 					.onChange(async (value) => {
 						plugin.settings.jiraSettings.apiToken = value;
